@@ -56,31 +56,31 @@ namespace Game
             }
         }
 
-        static void Menu(int select)
+        static void Menu(int choice)
         {
             int count = 0;
 
-            ReadFream("   FEELWORDS   ", select, count);
+            ReadFream("   FEELWORDS   ", choice, count);
             Console.WriteLine("\n");
             count++;
 
-            ReadFream(" NEW GAME ", select, count);
+            ReadFream(" NEW GAME ", choice, count);
             Console.WriteLine("");
             count++;
 
-            ReadFream(" CONTINUE ", select, count);
+            ReadFream(" CONTINUE ", choice, count);
             Console.WriteLine("");
             count++;
 
-            ReadFream(" RATING    ", select, count);
+            ReadFream(" RATING    ", choice, count);
             Console.WriteLine("");
             count++;
 
-            ReadFream(" EXIT      ", select, count);
+            ReadFream(" EXIT      ", choice, count);
             Console.WriteLine("");
 
         }
-        static void ReadFream(string text, int select, int count)
+        static void ReadFream(string text, int choice, int count)
         {
             int numSpace = 50;
             if (text == "   FEELWORDS   ")
@@ -90,13 +90,13 @@ namespace Game
             for (int i = 0; i < text.Length; i++)
                 line += '-';
 
-            CreateSpace(numSpace, select, count);
+            CreateSpace(numSpace, choice, count);
             Fream('╔', line, '╗', numSpace);
 
-            CreateSpace(numSpace, select, count);
+            CreateSpace(numSpace, choice, count);
             Fream('|', text, '|', numSpace);
 
-            CreateSpace(numSpace, select, count);
+            CreateSpace(numSpace, choice, count);
             Fream('╚', line, '╝', numSpace);
         }
 
@@ -111,12 +111,12 @@ namespace Game
             Console.ResetColor();
         }
 
-        static void CreateSpace(int numSpace, int select, int counter)
+        static void CreateSpace(int numSpace, int choice, int count)
         {
             for (int i = 0; i < numSpace; i++)
                 Console.Write(" ");
 
-            if (select == counter)
+            if (choice == count)
                 Console.BackgroundColor = ConsoleColor.DarkMagenta;
         }
 
