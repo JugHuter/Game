@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel.Design;
 
 namespace Game
@@ -7,14 +7,14 @@ namespace Game
     {
         static void Main(string[] args)
         {
-            int select = 1;
+            int choice = 1;
 
-            Menu(select);
-            Choice(select);
+            Menu(choice);
+            Choice(choice);
 
             Console.Read();
         }
-        static void Choice(int select)
+        static void Choice(int choice)
         {
             while (true)
             {
@@ -23,7 +23,7 @@ namespace Game
                 if (Key == ConsoleKey.Enter)
                 {
                     Console.Clear();
-                    switch (select)
+                    switch (choice)
                     {
                         case 1:
                             NewGame();
@@ -43,44 +43,44 @@ namespace Game
                     }
                     break;
                 }
-                if (select > 1)
+                if (choice > 1)
                     if (Key == ConsoleKey.W || Key == ConsoleKey.UpArrow)
-                        select -= 1;
+                        choice -= 1;
 
-                if (select < 4)
+                if (choice < 4)
                     if (Key == ConsoleKey.S || Key == ConsoleKey.DownArrow)
-                        select += 1;
+                        choice += 1;
 
                 Console.Clear();
-                Menu(select);
+                Menu(choice);
             }
         }
 
         static void Menu(int select)
         {
-            int counter = 0;
+            int count = 0;
 
-            ReadFream("   FEELWORDS   ", select, counter);
+            ReadFream("   FEELWORDS   ", select, count);
             Console.WriteLine("\n");
-            counter++;
+            count++;
 
-            ReadFream(" NEW GAME ", select, counter);
+            ReadFream(" NEW GAME ", select, count);
             Console.WriteLine("");
-            counter++;
+            count++;
 
-            ReadFream(" CONTINUE ", select, counter);
+            ReadFream(" CONTINUE ", select, count);
             Console.WriteLine("");
-            counter++;
+            count++;
 
-            ReadFream(" RATING    ", select, counter);
+            ReadFream(" RATING    ", select, count);
             Console.WriteLine("");
-            counter++;
+            count++;
 
-            ReadFream(" EXIT      ", select, counter);
+            ReadFream(" EXIT      ", select, count);
             Console.WriteLine("");
 
         }
-        static void ReadFream(string text, int select, int counter)
+        static void ReadFream(string text, int select, int count)
         {
             int numSpace = 50;
             if (text == "   FEELWORDS   ")
@@ -90,13 +90,13 @@ namespace Game
             for (int i = 0; i < text.Length; i++)
                 line += '-';
 
-            CreateSpace(numSpace, select, counter);
+            CreateSpace(numSpace, select, count);
             Fream('╔', line, '╗', numSpace);
 
-            CreateSpace(numSpace, select, counter);
+            CreateSpace(numSpace, select, count);
             Fream('|', text, '|', numSpace);
 
-            CreateSpace(numSpace, select, counter);
+            CreateSpace(numSpace, select, count);
             Fream('╚', line, '╝', numSpace);
         }
 
