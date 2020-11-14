@@ -9,7 +9,7 @@ namespace Game
         {
             int select = 1;
 
-            ReadMenu(select);
+            Menu(select);
             Choice(select);
 
             Console.Read();
@@ -52,11 +52,11 @@ namespace Game
                         select += 1;
 
                 Console.Clear();
-                ReadMenu(select);
+                Menu(select);
             }
         }
 
-        static void ReadMenu(int select)
+        static void Menu(int select)
         {
             int counter = 0;
 
@@ -88,13 +88,13 @@ namespace Game
 
             string line = "";
             for (int i = 0; i < text.Length; i++)
-                line += '═';
+                line += '-';
 
             CreateSpace(numSpace, select, counter);
             Fream('╔', line, '╗', numSpace);
 
             CreateSpace(numSpace, select, counter);
-            Fream('║', text, '║', numSpace);
+            Fream('|', text, '|', numSpace);
 
             CreateSpace(numSpace, select, counter);
             Fream('╚', line, '╝', numSpace);
